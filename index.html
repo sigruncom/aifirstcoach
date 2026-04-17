@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI First Coach | 7 Days Free</title>
+<meta name="description" content="The AI First Coach helps female entrepreneurs turn their existing business into an AI-first one. Try it free for 7 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=STIX+Two+Text:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #CC0000;
+    --black: #131313;
+    --white: #FFFFFF;
+    --light-grey: #F2F3F4;
+    --charcoal: #7A7C82;
+    --grey: #BDBEC1;
+    --max: 1200px;
+    --radius-btn: 999px;
+    --radius-card: 16px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', 'Inter', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    background: var(--white);
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .serif { font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif; }
+
+  .container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  header.nav {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: saturate(150%) blur(8px);
+    border-bottom: 1px solid var(--light-grey);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px;
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .logo {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+  .nav-links a { color: var(--black); text-decoration: none; }
+  .nav-links a:hover { color: var(--red); }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 28px;
+    border-radius: var(--radius-btn);
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 14px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .btn-primary { background: var(--red); color: var(--white); }
+  .btn-primary:hover { background: var(--black); }
+  .btn-outline { background: transparent; color: var(--black); border-color: var(--black); }
+  .btn-outline:hover { background: var(--black); color: var(--white); }
+  .btn-outline-white { background: transparent; color: var(--white); border-color: var(--white); }
+  .btn-outline-white:hover { background: var(--white); color: var(--red); }
+  .btn .arrow { font-size: 16px; line-height: 1; }
+
+  /* HERO */
+  .hero { padding: 80px 0 100px; background: var(--white); }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
+  }
+  .overline {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 13px;
+    color: var(--red);
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  h1 .red { color: var(--red); font-weight: 300; }
+  .hero p.intro {
+    font-family: 'Geist', sans-serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.5;
+    color: var(--black);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .hero-meta {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: var(--charcoal);
+  }
+  .hero-meta .check { color: var(--red); font-weight: 600; }
+
+  .device {
+    position: relative;
+    background: var(--light-grey);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 30px 60px -20px rgba(19,19,19,0.15);
+  }
+  .device-bar {
+    display: flex; gap: 6px; margin-bottom: 14px;
+  }
+  .device-bar span {
+    width: 10px; height: 10px; border-radius: 50%; background: var(--grey);
+  }
+  .device-screen {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    font-size: 14px;
+  }
+  .chat-row { display: flex; gap: 12px; margin-bottom: 16px; }
+  .chat-avatar {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--red); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 500; font-size: 14px; flex-shrink: 0;
+  }
+  .chat-avatar.user { background: var(--black); }
+  .chat-bubble {
+    background: var(--light-grey);
+    padding: 12px 16px;
+    border-radius: 14px;
+    line-height: 1.45;
+  }
+  .chat-bubble strong { color: var(--red); }
+
+  /* CREDENTIALS */
+  .credentials {
+    background: var(--light-grey);
+    padding: 32px 0;
+    border-top: 1px solid var(--grey);
+    border-bottom: 1px solid var(--grey);
+  }
+  .credentials-inner {
+    display: flex; justify-content: center; align-items: center;
+    flex-wrap: wrap; gap: 40px;
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    color: var(--charcoal);
+  }
+  .credentials-inner span { white-space: nowrap; }
+
+  /* SECTIONS */
+  section.block { padding: 100px 0; }
+  section.block.light { background: var(--light-grey); }
+  .section-head { max-width: 780px; margin-bottom: 56px; }
+  h2 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  h2 .red { color: var(--red); font-weight: 300; }
+  .lead {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--black);
+  }
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  /* PROBLEM / STORY */
+  .story-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;
+  }
+  .story-grid p { font-size: 17px; line-height: 1.55; }
+
+  /* FEATURES */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .feature {
+    background: var(--white);
+    border: 1px solid var(--light-grey);
+    border-radius: var(--radius-card);
+    padding: 32px;
+  }
+  .feature-num {
+    font-family: 'Geist', sans-serif;
+    font-weight: 300;
+    font-size: 40px;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .feature h3 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .feature p {
+    font-size: 15px;
+    color: var(--black);
+    line-height: 1.5;
+  }
+
+  /* WHO ITS FOR */
+  .fit-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  }
+  .fit-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 36px;
+  }
+  .fit-card.dark { background: var(--black); color: var(--white); }
+  .fit-card h3 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .fit-card ul { list-style: none; }
+  .fit-card li {
+    padding: 10px 0 10px 32px;
+    position: relative;
+    font-size: 16px;
+    line-height: 1.45;
+    border-bottom: 1px solid var(--light-grey);
+  }
+  .fit-card.dark li { border-bottom-color: #2a2a2a; }
+  .fit-card li:last-child { border-bottom: none; }
+  .fit-card li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 16px;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--red);
+    display: inline-block;
+  }
+  .fit-card li::after {
+    content: '✓';
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    position: absolute;
+    left: 4px; top: 13px;
+  }
+  .fit-card.dark li::before { background: var(--red); }
+  .fit-card.not li::before { background: var(--charcoal); }
+  .fit-card.not li::after { content: '×'; font-size: 14px; top: 11px; left: 5px; }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .step { position: relative; }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .step h3 {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  .step p { font-size: 16px; line-height: 1.5; }
+
+  /* TESTIMONIALS */
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .test {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 32px;
+    border: 1px solid var(--light-grey);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .test .mark {
+    font-family: 'STIX Two Text', serif;
+    color: var(--grey);
+    font-size: 64px;
+    line-height: 0.5;
+    margin-top: 20px;
+  }
+  .test blockquote {
+    font-family: 'STIX Two Text', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--black);
+  }
+  .test cite {
+    font-style: normal;
+    font-size: 14px;
+    color: var(--charcoal);
+    letter-spacing: 0.04em;
+  }
+  .test cite strong { color: var(--black); font-weight: 500; }
+
+  /* ABOUT */
+  .about-grid {
+    display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 64px; align-items: center;
+  }
+  .about blockquote.big {
+    font-family: 'STIX Two Text', serif;
+    font-style: italic;
+    font-size: 26px;
+    line-height: 1.35;
+    color: var(--red);
+    margin: 24px 0;
+    border-left: 3px solid var(--red);
+    padding-left: 20px;
+  }
+
+  /* PRICING / SIGNUP */
+  .signup-wrap {
+    background: var(--black);
+    color: var(--white);
+    border-radius: var(--radius-card);
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .signup-wrap h2 { color: var(--white); margin-bottom: 16px; }
+  .signup-wrap h2 .red { color: var(--red); }
+  .signup-wrap ul { list-style: none; margin-top: 20px; }
+  .signup-wrap li {
+    padding: 8px 0 8px 28px;
+    position: relative;
+    font-size: 16px;
+  }
+  .signup-wrap li::before {
+    content: '↗';
+    color: var(--red);
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+  }
+  .price-card {
+    background: var(--white);
+    color: var(--black);
+    border-radius: var(--radius-card);
+    padding: 40px;
+  }
+  .price-tag {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--red);
+    margin-bottom: 6px;
+  }
+  .price-tag span {
+    font-size: 16px; color: var(--charcoal); font-weight: 400;
+    margin-left: 6px;
+  }
+  .price-sub {
+    font-size: 14px; color: var(--charcoal); margin-bottom: 24px;
+  }
+  form { display: flex; flex-direction: column; gap: 12px; }
+  label {
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: -4px;
+  }
+  input[type="text"], input[type="email"] {
+    padding: 14px 16px;
+    border: 1.5px solid var(--light-grey);
+    border-radius: 10px;
+    font-family: 'Geist', sans-serif;
+    font-size: 15px;
+    color: var(--black);
+    background: var(--white);
+    transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, input[type="email"]:focus {
+    outline: none;
+    border-color: var(--red);
+  }
+  .form-note {
+    font-size: 12px;
+    color: var(--charcoal);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+  form .btn { justify-content: center; margin-top: 8px; }
+
+  /* FAQ */
+  .faq-list { max-width: 820px; margin: 0 auto; }
+  details.faq {
+    border-bottom: 1px solid var(--grey);
+    padding: 24px 0;
+  }
+  details.faq summary {
+    font-family: 'Geist', sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  details.faq summary::-webkit-details-marker { display: none; }
+  details.faq summary::after {
+    content: '+';
+    color: var(--red);
+    font-weight: 300;
+    font-size: 28px;
+    line-height: 1;
+    transition: transform 0.15s;
+  }
+  details.faq[open] summary::after { content: '−'; }
+  details.faq p {
+    padding-top: 14px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--black);
+  }
+
+  /* FINAL CTA */
+  .final-cta {
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 24px;
+  }
+  .final-cta h2 { color: var(--white); margin-bottom: 20px; }
+  .final-cta p { color: var(--white); font-size: 19px; margin-bottom: 32px; opacity: 0.95; }
+  .final-cta .btn-primary { background: var(--white); color: var(--red); }
+  .final-cta .btn-primary:hover { background: var(--black); color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 48px 0 32px;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+    font-size: 13px;
+    color: var(--grey);
+  }
+  .footer-inner a { color: var(--grey); text-decoration: none; margin-left: 24px; }
+  .footer-inner a:hover { color: var(--white); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero-grid, .story-grid, .fit-grid, .about-grid, .signup-wrap {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .features-grid, .steps, .test-grid {
+      grid-template-columns: 1fr;
+    }
+    .nav-links { display: none; }
+    section.block { padding: 64px 0; }
+    .hero { padding: 56px 0 72px; }
+    .signup-wrap { padding: 40px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">AI&nbsp;FIRST&nbsp;COACH</a>
+    <ul class="nav-links">
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#inside">What You Get</a></li>
+      <li><a href="#stories">Stories</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="app.html" style="color: var(--red);">Start Free Trial ↗</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="overline">The AI First Coach</div>
+        <h1>Become an <span class="red">AI-First</span> Entrepreneur. In 7 Days.</h1>
+        <p class="intro">The AI First Coach is for female founders who built real businesses the old way and are ready to put AI to work. No fluff. No jargon. Just the moves that matter.</p>
+        <div class="hero-ctas">
+          <a href="app.html" class="btn btn-primary">Start Your Free Trial <span class="arrow">↗</span></a>
+          <a href="#how" class="btn btn-outline">See How It Works <span class="arrow">↓</span></a>
+        </div>
+        <div class="hero-meta">
+          <span class="check">✓</span> 7 days free. Cancel anytime. Cancel in 2 clicks.
+        </div>
+      </div>
+      <div class="device" aria-hidden="true">
+        <div class="device-bar"><span></span><span></span><span></span></div>
+        <div class="device-screen">
+          <div class="chat-row">
+            <div class="chat-avatar user">Y</div>
+            <div class="chat-bubble">My team spends 6 hours a week writing client update emails. Help.</div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar">AI</div>
+            <div class="chat-bubble">Here's a 3-step workflow that cuts it to 40 minutes. <strong>Copy this prompt,</strong> paste last week's updates, and review before sending. Want me to build the template?</div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar user">Y</div>
+            <div class="chat-bubble">Yes. And walk me through rolling it out to the team.</div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-avatar">AI</div>
+            <div class="chat-bubble">On it. Let's start with your top client first, so we can test before scaling...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="credentials">
+  <div class="credentials-inner">
+    <span>Built for 6 &amp; 7 Figure Female Founders</span>
+    <span>· No AI Experience Required</span>
+    <span>· 3 Team Seats Included</span>
+    <span>· Cancel Anytime in 2 Clicks</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="block" id="problem">
+  <div class="container">
+    <div class="story-grid">
+      <div>
+        <h2>AI Is Here. Your Business Can <span class="red">Catch Up.</span></h2>
+        <p class="lead">Most female-led businesses were built without AI. Long hours. Manual tasks. Admin that stole time from the work only you can do.</p>
+      </div>
+      <div>
+        <p>Your team is excellent. Your offers are solid. Your reputation is earned over years of hard work.</p>
+        <p>And every week, the gap grows between what your business is today and what AI can make it tomorrow. Your competitors know it. Your clients are starting to ask about it.</p>
+        <p><strong>The AI First Coach closes that gap. Fast.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="block light" id="how">
+  <div class="container">
+    <div class="section-head">
+      <div class="overline">How It Works</div>
+      <h2>From First Login to <span class="red">AI-First</span> in a Week</h2>
+      <p class="lead">The coach meets you at your desk, looks at your business, and walks you through the changes that move the needle.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell Your Coach About Your Business</h3>
+        <p>A 15-minute onboarding. You share your offers, team and the tasks eating your week. The coach builds your AI-First profile.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get Your 7-Day Roadmap</h3>
+        <p>Your coach picks the 3 highest-leverage places to put AI to work first. Small wins on day one. Compound ones by day seven.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Work Through It, Together</h3>
+        <p>Daily check-ins. Ready-to-use prompts. Workflow templates you can deploy in an hour. Every step is matched to your business and your team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES / WHAT YOU GET -->
+<section class="block" id="inside">
+  <div class="container">
+    <div class="section-head">
+      <div class="overline">What's Inside</div>
+      <h2>What You Get in <span class="red">7 Days Free</span></h2>
+      <p class="lead">Full access. No feature locked behind a paywall. Try it all.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-num">01</div>
+        <h3>Personal AI Coach</h3>
+        <p>On call 24/7. Asks the right questions. Gives straight answers. Holds you to your plan.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">02</div>
+        <h3>Your AI-First Roadmap</h3>
+        <p>A 30-day plan built around your business, your offers and your team. Clear priorities. Clear milestones.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">03</div>
+        <h3>Done-For-You Workflows</h3>
+        <p>Copy, paste, deploy. Workflows for marketing, sales, client delivery, hiring, operations. Hours saved per week, week after week.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">04</div>
+        <h3>The Prompt Library</h3>
+        <p>Hundreds of prompts tested in real 7-figure businesses. Sorted by function. Searchable. Editable.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">05</div>
+        <h3>Weekly Strategy Reviews</h3>
+        <p>Your coach reviews your top 3 priorities every Sunday and builds your plan for the week ahead.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-num">06</div>
+        <h3>Tool Picks, No Jargon</h3>
+        <p>Your coach tells you which tools to use and which to skip. No affiliate tricks. No AI-bro speak.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="block light">
+  <div class="container">
+    <div class="section-head">
+      <div class="overline">Is This For You?</div>
+      <h2>Who the AI First Coach <span class="red">Is For</span></h2>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-card dark">
+        <h3 style="color: var(--white);">This Is For You If...</h3>
+        <ul>
+          <li>You run a 6 or 7 figure business you built without AI</li>
+          <li>You're done watching AI from the sidelines</li>
+          <li>You want Think Big, Take Action results, not another course</li>
+          <li>You have a team and want them AI-First too</li>
+          <li>You're willing to do the work</li>
+        </ul>
+      </div>
+      <div class="fit-card not">
+        <h3>This Is Not For You If...</h3>
+        <ul>
+          <li>You're looking for a done-for-you service, not a coach</li>
+          <li>You want theory, not doing</li>
+          <li>You haven't started a business yet</li>
+          <li>You want to be told AI is a trend that'll pass</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="block" id="stories">
+  <div class="container">
+    <div class="section-head">
+      <div class="overline">Success Stories</div>
+      <h2>Female Founders Who <span class="red">Caught Up Fast</span></h2>
+    </div>
+    <!-- Replace placeholder testimonials with real client quotes before going live -->
+    <div class="test-grid">
+      <div class="test">
+        <div class="mark">"</div>
+        <blockquote>I saved 12 hours in my first week. I spent them on my highest-value client. My coach showed me where AI fits, and then pulled me forward when I dragged my feet.</blockquote>
+        <cite><strong>[Client Name]</strong><br>[Business Type], [Country]</cite>
+      </div>
+      <div class="test">
+        <div class="mark">"</div>
+        <blockquote>I was intimidated by AI. By day three, I had three workflows running. By day seven, my assistant was running them. That's the real shift.</blockquote>
+        <cite><strong>[Client Name]</strong><br>[Business Type], [Country]</cite>
+      </div>
+      <div class="test">
+        <div class="mark">"</div>
+        <blockquote>I've done every AI course. They left me with tabs open and nothing shipped. This coach gave me a plan and held me to it. Finally.</blockquote>
+        <cite><strong>[Client Name]</strong><br>[Business Type], [Country]</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY THIS EXISTS -->
+<section class="block light about">
+  <div class="container">
+    <div class="section-head" style="margin-left: auto; margin-right: auto; text-align: center;">
+      <div class="overline">Why the AI First Coach Exists</div>
+      <h2>Built For Female Founders Who Don't Have <span class="red">Time to Waste</span></h2>
+    </div>
+    <div class="story-grid">
+      <div>
+        <p class="lead">Most female-led 6 and 7 figure businesses are being left behind on AI. The reason is simple. No one is walking these founders through the specifics for their business, their team and their offers.</p>
+        <blockquote class="big">The goal is simple. Hours back. Better client work. A business running on 2026 rails.</blockquote>
+      </div>
+      <div>
+        <p>Generic AI courses don't get the job done. A consultant costs €10,000 and still leaves you doing the work alone.</p>
+        <p>The AI First Coach sits between the two. Personal like a consultant. Affordable like a course. Accountable like the best mentor you've ever had.</p>
+        <p><strong>That's the whole reason it exists.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section class="block" id="signup">
+  <div class="container">
+    <div class="signup-wrap">
+      <div>
+        <div class="overline" style="color: var(--red);">Start Today</div>
+        <h2>7 Days. <span class="red">Free.</span> Cancel Anytime.</h2>
+        <p style="font-size: 17px; opacity: 0.9;">Full access to the AI First Coach. No limits. No watered-down trial version.</p>
+        <ul>
+          <li>Your personal AI coach, 24/7</li>
+          <li>Your AI-First 30-day roadmap</li>
+          <li>Workflows, prompts and weekly reviews</li>
+          <li>Cancel in 2 clicks, no phone call required</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-tag">€0<span>/ 7 days</span></div>
+        <div class="price-sub">Then €97/month. Cancel anytime before day 7.</div>
+        <form action="app.html" method="get" novalidate>
+          <label for="name">First Name</label>
+          <input type="text" id="name" name="name" placeholder="Your first name" required>
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+          <button type="submit" class="btn btn-primary">Start My Free Trial <span class="arrow">↗</span></button>
+          <p class="form-note">By starting your trial you agree to our terms. We'll send a reminder 24 hours before your trial ends. You can cancel anytime from your account.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="block light" id="faq">
+  <div class="container">
+    <div class="section-head" style="text-align: center; margin-left: auto; margin-right: auto;">
+      <div class="overline">Questions</div>
+      <h2>Answers, <span class="red">No Fluff</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq" open>
+        <summary>What exactly is the AI First Coach?</summary>
+        <p>It's a personal AI coach built for female entrepreneurs who run real businesses and want to put AI to work fast. You talk to it like you'd talk to a smart consultant. It knows your business, your offers and your team, and it walks you through the moves that matter.</p>
+      </details>
+      <details class="faq">
+        <summary>Do I need to know anything about AI to start?</summary>
+        <p>No. If you can write an email, you can use the AI First Coach. That's the whole point. No courses to finish first, no prompt engineering to learn. Your coach teaches you as you go.</p>
+      </details>
+      <details class="faq">
+        <summary>What happens after the 7 days?</summary>
+        <p>Your subscription rolls to €97/month. You can cancel anytime before day 7 and pay nothing. We'll email you a reminder 24 hours before the trial ends, so nothing is a surprise.</p>
+      </details>
+      <details class="faq">
+        <summary>Is my business data private?</summary>
+        <p>Yes. Your coach uses your data to help you, never to train public models. You own everything you put in, and you can export or delete it anytime.</p>
+      </details>
+      <details class="faq">
+        <summary>Can I share my coach with my team?</summary>
+        <p>Yes. Your trial includes 3 team seats so your key people can use it too. If you love it after 7 days, team plans scale from there.</p>
+      </details>
+      <details class="faq">
+        <summary>How is this different from a generic AI chatbot?</summary>
+        <p>Your coach knows your business. It remembers your offers, your team and your priorities week to week. It nudges you when you drift and celebrates when you ship. Generic chatbots wait for prompts. Your coach brings the plan.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Your AI-First Sprint Starts Today.</h2>
+    <p>7 days free. Full access. Start now.</p>
+    <a href="app.html" class="btn btn-primary">Start Your Free Trial <span class="arrow">↗</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>© The AI First Coach. All rights reserved.</div>
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
